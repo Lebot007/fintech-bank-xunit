@@ -1,4 +1,4 @@
-﻿# 💰 FintechBank
+# 💰 FintechBank
 
 Aplicação de console em **.NET 10** com o *core* de regras de negócio de um banco digital, desenvolvida para a disciplina de **Garantia da Qualidade de Software** (Gestão e Qualidade de Software — Prof. Daniel Henrique Matos de Paiva), com testes unitários **parametrizados** em **xUnit**.
 
@@ -34,13 +34,13 @@ Aplicação de console em **.NET 10** com o *core* de regras de negócio de um b
 
     dotnet test
 
-Resultado esperado: `Passed! - Failed: 0, Passed: 11, Skipped: 0, Total: 11`
+Resultado esperado: `Passed! - Failed: 0, Passed: 25, Skipped: 0, Total: 25`
 
 ## 🧪 Testes Parametrizados (`[Theory]` / `[InlineData]`)
 
 `[Theory]` marca um método de teste como uma *teoria*: ele vale para **vários conjuntos de dados**, e o xUnit o executa uma vez para cada conjunto. Cada `[InlineData(...)]` fornece um conjunto (entradas + resultado esperado) e aparece no relatório como um **teste independente**, sem fontes externas de dados.
 
-Assim, um único método cobre todos os cenários de cada regra: 4 + 2 casos em `ContaCorrenteServiceTests` e 3 + 2 em `EmprestimoServiceTests` = **11 testes**.
+Assim, um único método cobre todos os cenários de cada regra. Além dos casos exigidos na lista, as suítes incluem **casos-limite** (análise de valor de fronteira) e um caso de **exceção** (`ArgumentException` para parcelas inválidas): 12 testes em `ContaCorrenteServiceTests` e 13 em `EmprestimoServiceTests` = **25 testes**.
 
     [Theory]
     [InlineData(6000.00, false, 0.00)]  // Saldo alto -> isento
